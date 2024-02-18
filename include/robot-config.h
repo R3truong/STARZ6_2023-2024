@@ -9,8 +9,6 @@ extern motor CenterRight;
 extern inertial InertiaSensor;
 extern motor rightIntake;
 extern motor leftIntake;
-extern motor rightClawSpin;
-extern motor leftClawSpin;
 extern motor leftCatapault;
 extern motor rightCatapault;
 extern limit catapaultSwitch;
@@ -18,6 +16,7 @@ extern motor RearRight;
 extern motor CenterLeft;
 extern motor FrontLeft;
 extern motor FrontRight;
+extern motor_group intakeOpen;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.

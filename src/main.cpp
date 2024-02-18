@@ -7,6 +7,95 @@
 // InertiaSensor        inertial      5               
 // rightIntake          motor         20              
 // leftIntake           motor         2               
+// leftCatapault        motor         8               
+// rightCatapault       motor         10              
+// catapaultSwitch      limit         H               
+// RearRight            motor         1               
+// CenterLeft           motor         12              
+// FrontLeft            motor         13              
+// FrontRight           motor         11              
+// intakeOpen           motor_group   17, 18          
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// RearLeft             motor         9               
+// CenterRight          motor         21              
+// InertiaSensor        inertial      5               
+// rightIntake          motor         20              
+// leftIntake           motor         2               
+// leftCatapault        motor         8               
+// rightCatapault       motor         10              
+// catapaultSwitch      limit         H               
+// RearRight            motor         1               
+// CenterLeft           motor         12              
+// FrontLeft            motor         13              
+// FrontRight           motor         11              
+// intakeOpen           motor_group   17, 18          
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// RearLeft             motor         9               
+// CenterRight          motor         21              
+// InertiaSensor        inertial      5               
+// rightIntake          motor         20              
+// leftIntake           motor         2               
+// leftCatapault        motor         8               
+// rightCatapault       motor         10              
+// catapaultSwitch      limit         H               
+// RearRight            motor         1               
+// CenterLeft           motor         12              
+// FrontLeft            motor         13              
+// FrontRight           motor         11              
+// intakeOpen           motor_group   17, 18          
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// RearLeft             motor         9               
+// CenterRight          motor         21              
+// InertiaSensor        inertial      5               
+// rightIntake          motor         20              
+// leftIntake           motor         2               
+// leftCatapault        motor         8               
+// rightCatapault       motor         10              
+// catapaultSwitch      limit         H               
+// RearRight            motor         1               
+// CenterLeft           motor         12              
+// FrontLeft            motor         13              
+// FrontRight           motor         11              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// RearLeft             motor         9               
+// CenterRight          motor         21              
+// InertiaSensor        inertial      5               
+// rightIntake          motor         20              
+// leftIntake           motor         2               
+// leftClawSpin         motor         18              
+// leftCatapault        motor         8               
+// rightCatapault       motor         10              
+// catapaultSwitch      limit         H               
+// RearRight            motor         1               
+// CenterLeft           motor         12              
+// FrontLeft            motor         13              
+// FrontRight           motor         11              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// RearLeft             motor         9               
+// CenterRight          motor         21              
+// InertiaSensor        inertial      5               
+// rightIntake          motor         20              
+// leftIntake           motor         2               
 // rightClawSpin        motor         17              
 // leftClawSpin         motor         18              
 // leftCatapault        motor         8               
@@ -166,6 +255,7 @@ bool intakeButton;
 bool clawButton;
 bool loadCatapault;
 bool fireCatapault;
+bool resetIntakePosition;
 
 // driver control function Declarations
 void setMotorVelocities(float left, float right);
@@ -173,31 +263,16 @@ void spinMotors();
 void stopMotors();
 void spinIntake();
 void stopIntake();
-void spinClawOut();
-void stopClawSpin();
+void openIntake();
+void closeIntake();
 
 // Autonomous Variable Declarations
 bool resetOrientation;
 
-double KP = 0.0;
-double KI = 0.0;
-double KD = 0.0;  
-
-double TURNKP = 0.0;
-double TURNKI = 0.0;
-double TURNKD = 0.0;  
-
-int error; // SensorValue - desiredValue : positional value (deltaX)
-int prevError = 0; // Position 20 miliseconds ago
-int derivative; // error - prevError : speed
-int totalError = 0; // total error = totalError += error
-
-int turnError; // SensorValue - desiredValue : positional value (deltaX)
-int turnPrevError = 0; // Position 20 miliseconds ago
-int turnDerivative; // error - prevError : speed
-int turnTotalError = 0; // total error = totalError += error
 
 // autonomous function declarations
+void spinMotorsForwardAuton();
+void spinMotorsReverseAuton();
 void driveToGoal();
 void drivePID();
 
@@ -232,62 +307,19 @@ void pre_auton(void) {
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
-void autonomous(void) {
-  // ..........................................................................
-  // Insert autonomous user code here.
-  // ..........................................................................
-  
+void autonomous(void) 
+{
+  openIntake();
+  spinIntake();
+  thread rearLeft([]
+  {
+    spinMotors();
+  });
+  closeIntake();
 
+  
 }
                                       // PID CODE
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// bool enablePID = true;
-// double desiredPosition = 200;
-// double desiredTurning = 0;
-// Auton Functions
-// void drivePID()
-// {
-//   while(enablePID)
-//   {
-//     // Lateral PID
-//     double leftMotorPosition = CenterLeft.position(degrees);
-//     double rightMotorPosition = CenterRight.position(degrees);
-//     // average of two variables
-//     double averagePosition = (leftMotorPosition + rightMotorPosition) / 2;
-
-//     // Potential
-//     error = averagePosition - desiredPosition; 
-//     // Derivative
-//     derivative = error - prevError;
-
-//     // Velocity -> position -> Absement
-//     // totalError += error;
-
-//     double lateralMotorPower = (error * KP + derivative * KD);
-
-
-//     // Turning PID
-    
-
-//     double turnDifference = (leftMotorPosition - rightMotorPosition) / 2;
-//     turnError = turnDifference - desiredPosition; 
-//     turnDerivative = turnError - turnPrevError;
-
-//     // turnTotalError += turnError;
-
-//     double turnMotorPower = (turnError * TURNKP + turnDerivative * TURNKD);
-
-//     ////////////////////////////////////////////////////////////////////////////////
-//     CenterLeft.spinFor(forward, lateralMotorPower + turnMotorPower,degrees);
-
-//     prevError = error;
-//     turnPrevError = turnError;
-//     task::sleep(20);
-
-//   }
-// }
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
@@ -304,7 +336,6 @@ void usercontrol(void) {
   rightIntake.setVelocity(100,percent);
   // User control code here, inside the loop
   while (1) {
-    std::cout << leftCatapault.position(degrees) << std::endl;   
 
     // Controller Variables
     deadzone = 9;
@@ -316,6 +347,7 @@ void usercontrol(void) {
     intakeButton = Controller1.ButtonL1.pressing(); // R2
     loadCatapault = Controller1.ButtonR1.pressing(); // R1
     fireCatapault = Controller1.ButtonR2.pressing(); // L1
+    resetIntakePosition = Controller1.ButtonDown.pressing(); // down arrow on dpad
     
     // Velocities of said variables
     leftVelocity = controllerYAxis + controllerXAxis;
@@ -343,13 +375,17 @@ void usercontrol(void) {
     {
       stopIntake();
     }
-    if(clawButton)
+    if(clawButton && abs(intakeOpen.position(degrees)) < 190)
     {
-      spinClawOut();
+      openIntake();
     }
-    else if(!clawButton)
+    else
     {
-      stopClawSpin();
+      closeIntake();
+    }
+    if(resetIntakePosition)
+    {
+      intakeOpen.resetPosition();
     }
 
     // Shooter Code
@@ -418,6 +454,60 @@ void spinMotors()
   FrontLeft.spin(forward);
   FrontRight.spin(forward);
 }
+void spinMotorsForwardAuton()
+{
+  thread rearLeft([]
+  {
+    RearLeft.spin(forward);
+  });
+  thread rearRight([]
+  {
+    RearRight.spin(forward);
+  });
+  thread centerLeft([]
+  {
+    CenterLeft.spin(forward);
+  });
+  thread centerRight([]
+  {
+    CenterRight.spin(forward);
+  });
+  thread frontLeft([]
+  {
+    FrontLeft.spin(forward);
+  });
+  thread frontRight([]
+  {
+    FrontRight.spin(forward);
+  });
+}
+void spinMotorsReverseAuton()
+{
+  thread rearLeft([]
+  {
+    RearLeft.spin(reverse);
+  });
+  thread rearRight([]
+  {
+    RearRight.spin(reverse);
+  });
+  thread centerLeft([]
+  {
+    CenterLeft.spin(reverse);
+  });
+  thread centerRight([]
+  {
+    CenterRight.spin(reverse);
+  });
+  thread frontLeft([]
+  {
+    FrontLeft.spin(reverse);
+  });
+  thread frontRight([]
+  {
+    FrontRight.spin(reverse);
+  });
+}
 
 void stopMotors()
 {
@@ -428,22 +518,13 @@ void stopMotors()
   FrontLeft.stop();
   FrontRight.stop();
 }
-void spinClawOut()
+void openIntake()
 {
-  thread leftClawThread([] {
-    leftClawSpin.spinToPosition(-184, degrees);
-  });
-  thread rightClawThread([] {
-    rightClawSpin.spinToPosition(184, degrees);
-  });
+  intakeOpen.spinToPosition(-184, degrees);
 }
-void stopClawSpin()
+void closeIntake()
 {
-  leftClawSpin.stop();
-  rightClawSpin.stop();
-  leftClawSpin.resetPosition();
-  rightClawSpin.resetPosition();
-
+  intakeOpen.stop();
 }
 void spinIntake()
 {
