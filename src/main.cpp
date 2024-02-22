@@ -15,217 +15,9 @@
 // FrontLeft            motor         13              
 // FrontRight           motor         11              
 // intakeOpen           motor_group   17, 18          
+// catapaultConstraint  rotation      7               
 // ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RearLeft             motor         9               
-// CenterRight          motor         21              
-// InertiaSensor        inertial      5               
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// catapaultSwitch      limit         H               
-// RearRight            motor         1               
-// CenterLeft           motor         12              
-// FrontLeft            motor         13              
-// FrontRight           motor         11              
-// intakeOpen           motor_group   17, 18          
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RearLeft             motor         9               
-// CenterRight          motor         21              
-// InertiaSensor        inertial      5               
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// catapaultSwitch      limit         H               
-// RearRight            motor         1               
-// CenterLeft           motor         12              
-// FrontLeft            motor         13              
-// FrontRight           motor         11              
-// intakeOpen           motor_group   17, 18          
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RearLeft             motor         9               
-// CenterRight          motor         21              
-// InertiaSensor        inertial      5               
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// catapaultSwitch      limit         H               
-// RearRight            motor         1               
-// CenterLeft           motor         12              
-// FrontLeft            motor         13              
-// FrontRight           motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RearLeft             motor         9               
-// CenterRight          motor         21              
-// InertiaSensor        inertial      5               
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// leftClawSpin         motor         18              
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// catapaultSwitch      limit         H               
-// RearRight            motor         1               
-// CenterLeft           motor         12              
-// FrontLeft            motor         13              
-// FrontRight           motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RearLeft             motor         9               
-// CenterRight          motor         21              
-// InertiaSensor        inertial      5               
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// rightClawSpin        motor         17              
-// leftClawSpin         motor         18              
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// catapaultSwitch      limit         H               
-// RearRight            motor         1               
-// CenterLeft           motor         12              
-// FrontLeft            motor         13              
-// FrontRight           motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RearLeft             motor         9               
-// CenterRight          motor         21              
-// InertiaSensor        inertial      5               
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// rightClawSpin        motor         17              
-// leftClawSpin         motor         18              
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// catapaultSwitch      limit         H               
-// RearRight            motor         1               
-// CenterLeft           motor         12              
-// FrontLeft            motor         13              
-// FrontRight           motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RearLeft             motor         9               
-// CenterRight          motor         21              
-// InertiaSensor        inertial      5               
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// rightClawSpin        motor         17              
-// leftClawSpin         motor         18              
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// catapaultSwitch      limit         H               
-// RearRight            motor         1               
-// CenterLeft           motor         12              
-// FrontLeft            motor         13              
-// FrontRight           motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RearLeft             motor         9               
-// CenterRight          motor         21              
-// InertiaSensor        inertial      5               
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// rightClawSpin        motor         17              
-// leftClawSpin         motor         18              
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// catapaultSwitch      limit         H               
-// RearRight            motor         1               
-// CenterLeft           motor         12              
-// FrontLeft            motor         13              
-// FrontRight           motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RearLeft             motor         9               
-// CenterRight          motor         21              
-// InertiaSensor        inertial      5               
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// rightClawSpin        motor         17              
-// leftClawSpin         motor         18              
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// catapaultSwitch      limit         H               
-// RearRight            motor         1               
-// CenterLeft           motor         12              
-// FrontLeft            motor         13              
-// FrontRight           motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RearLeft             motor         9               
-// CenterRight          motor         21              
-// InertiaSensor        inertial      5               
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// rightClawSpin        motor         17              
-// leftClawSpin         motor         18              
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// catapaultSwitch      limit         H               
-// RearRight            motor         1               
-// CenterLeft           motor         12              
-// FrontLeft            motor         13              
-// FrontRight           motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
 
-// ---- START VEXCODE CONFIGURED DEVICES ----
-
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RearRight            motor         20              
-// RearLeft             motor         11              
-// CenterRight          motor         19              
-// CenterLeft           motor         12              
-// FrontRight           motor         10              
-// FrontLeft            motor         1               
-// InertiaSensor        inertial      5               
-// rightIntake          motor         6               
-// leftIntake           motor         13              
-// rightClawSpin        motor         9               
-// leftClawSpin         motor         18              
-// leftCatapault        motor         4               
-// rightCatapault       motor         3               
-// catapaultSwitch      limit         A               
-// ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
 #include <iostream>
@@ -263,7 +55,7 @@ void spinMotors();
 void stopMotors();
 void spinIntake();
 void stopIntake();
-void openIntake();
+int openIntake();
 void closeIntake();
 
 // Autonomous Variable Declarations
@@ -275,6 +67,7 @@ void spinMotorsForwardAuton();
 void spinMotorsReverseAuton();
 void driveToGoal();
 void drivePID();
+void loadCatapaultAuton();
 
 /*---------------------------------------------------------------------------*/
 /*                          Pre-Autonomous Functions                         */
@@ -291,8 +84,8 @@ void drivePID();
 void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
-  InertiaSensor.calibrate();
-
+  InertiaSensor.calibrate();  
+  catapaultConstraint.resetPosition();
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
 }
@@ -309,15 +102,15 @@ void pre_auton(void) {
 
 void autonomous(void) 
 {
+  leftCatapault.setVelocity(25,percent);
+  rightCatapault.setVelocity(25,percent);
+  loadCatapaultAuton();
+  spinMotors();
   openIntake();
-  spinIntake();
-  thread rearLeft([]
-  {
-    spinMotors();
-  });
+  wait(0.5,msec);
+  stopMotors();
   closeIntake();
-
-  
+  spinIntake();
 }
                                       // PID CODE
 
@@ -336,7 +129,7 @@ void usercontrol(void) {
   rightIntake.setVelocity(100,percent);
   // User control code here, inside the loop
   while (1) {
-
+    std::cout << catapaultConstraint.position(degrees) << std::endl;
     // Controller Variables
     deadzone = 9;
     controllerYAxis = Controller1.Axis3.position(percent); // Left Stick
@@ -353,8 +146,9 @@ void usercontrol(void) {
     leftVelocity = controllerYAxis + controllerXAxis;
     rightVelocity = controllerYAxis - controllerXAxis;
     setMotorVelocities(leftVelocity, rightVelocity);
-    rightCatapault.setVelocity(40,percent);
-    leftCatapault.setVelocity(40,percent);
+    rightCatapault.setVelocity(25,percent);
+    leftCatapault.setVelocity(25,percent);
+    // Try velocity of 40 for catapault
 
     // Movement Code
     if(fabs(controllerYAxis) > deadzone || fabs(controllerXAxis) > deadzone)
@@ -367,22 +161,20 @@ void usercontrol(void) {
     }
     
     // Intake Code
-    if(intakeButton)
+    // if(intakeButton)
+    // {
+    //   spinIntake();
+    // }
+    // else
+    // {
+    //   stopIntake();
+    // }
+    if(clawButton && intakeOpen.position(degrees) < 190)
     {
-      spinIntake();
-    }
-    else
-    {
-      stopIntake();
-    }
-    if(clawButton && abs(intakeOpen.position(degrees)) < 190)
-    {
-      openIntake();
-    }
-    else
-    {
-      closeIntake();
-    }
+      thread rearRight([]
+      {
+        openIntake();
+      });    }
     if(resetIntakePosition)
     {
       intakeOpen.resetPosition();
@@ -390,27 +182,25 @@ void usercontrol(void) {
 
     // Shooter Code
    
-    if(loadCatapault && !catapaultSwitch.pressing())
+    if(loadCatapault && fabs(catapaultConstraint.position(degrees)) < 70)
     {
-    leftCatapault.setVelocity(25,percent);
-    rightCatapault.setVelocity(25,percent);
-    leftCatapault.spin(forward);
-    rightCatapault.spin(forward);
+      leftCatapault.spin(forward);
+      rightCatapault.spin(forward);
     }
-    else if(catapaultSwitch.pressing() || leftCatapault.position(degrees) > 340)
+    else if(fabs(catapaultConstraint.position(degrees)) > 70 && !fireCatapault)
     {  
       // std::cout << "test" << std::endl;   
-     leftCatapault.stop();
-     rightCatapault.stop();
-     leftCatapault.setStopping(hold);
-     rightCatapault.setStopping(hold);
+      leftCatapault.stop();
+      rightCatapault.stop();
+      leftCatapault.setStopping(hold);
+      rightCatapault.setStopping(hold);
     }
-    if(fireCatapault && catapaultSwitch.pressing())
+    else if(fireCatapault)
     {
-     leftCatapault.setStopping(coast);
-     rightCatapault.setStopping(coast);
-     rightCatapault.spin(forward);
-     leftCatapault.spin(forward);
+      leftCatapault.setStopping(coast);
+      rightCatapault.setStopping(coast);
+      rightCatapault.spin(forward);
+      leftCatapault.spin(forward);
     }
 
     wait(20, msec); // Sleep the task for a short amount of time to
@@ -454,7 +244,7 @@ void spinMotors()
   FrontLeft.spin(forward);
   FrontRight.spin(forward);
 }
-void spinMotorsForwardAuton()
+void spinMotorsForwardToAuton()
 {
   thread rearLeft([]
   {
@@ -518,18 +308,24 @@ void stopMotors()
   FrontLeft.stop();
   FrontRight.stop();
 }
-void openIntake()
+int openIntake()
 {
-  intakeOpen.spinToPosition(-184, degrees);
+  intakeOpen.spinToPosition(-135, degrees);
+  leftIntake.spin(forward);
+  rightIntake.spin(forward);
+  wait(500,msec);
+  intakeOpen.stop();
+  wait(1000,msec);
+  stopIntake();
+
+  return 0;
 }
 void closeIntake()
 {
-  intakeOpen.stop();
 }
 void spinIntake()
 {
-  leftIntake.spin(forward);
-  rightIntake.spin(forward);
+
 }
 void stopIntake()
 {
@@ -542,4 +338,10 @@ void stopIntake()
 void driveToGoal()
 {
   
+}
+
+void loadCatapaultAuton()
+{
+  leftCatapault.spinFor(forward,360,degrees);
+  rightCatapault.spinFor(forward,360,degrees);
 }

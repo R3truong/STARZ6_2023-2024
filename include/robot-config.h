@@ -17,6 +17,7 @@ extern motor CenterLeft;
 extern motor FrontLeft;
 extern motor FrontRight;
 extern motor_group intakeOpen;
+extern rotation catapaultConstraint;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
