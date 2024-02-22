@@ -4,18 +4,11 @@ extern brain Brain;
 
 // VEXcode devices
 extern controller Controller1;
-extern motor RearLeft;
-extern motor CenterRight;
-extern inertial InertiaSensor;
-extern motor rightIntake;
+extern smartdrive Drivetrain;
 extern motor leftIntake;
+extern motor rightIntake;
 extern motor leftCatapault;
 extern motor rightCatapault;
-extern limit catapaultSwitch;
-extern motor RearRight;
-extern motor CenterLeft;
-extern motor FrontLeft;
-extern motor FrontRight;
 extern motor_group intakeOpen;
 extern rotation catapaultConstraint;
 
