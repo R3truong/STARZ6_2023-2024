@@ -9,20 +9,21 @@ brain  Brain;
 
 // VEXcode device constructors
 controller Controller1 = controller(primary);
-motor leftMotorA = motor(PORT9, ratio18_1, true);
+
+motor leftMotorA = motor(PORT11, ratio18_1, true);
 motor leftMotorB = motor(PORT13, ratio18_1, true);
-motor leftMotorC = motor(PORT12, ratio18_1, true);
-motor_group LeftDriveSmart = motor_group(leftMotorA, leftMotorB,leftMotorC);
-motor rightMotorA = motor(PORT1, ratio18_1, false);
-motor rightMotorB = motor(PORT11, ratio18_1, false);
+motor leftMotorC = motor(PORT12 , ratio18_1, false);
+motor_group LeftDriveSmart = motor_group(leftMotorA, leftMotorB, leftMotorC);
+motor rightMotorA = motor(PORT9, ratio18_1, false);
+motor rightMotorB = motor(PORT8, ratio18_1, false);
 motor rightMotorC = motor(PORT21, ratio18_1, true);
 motor_group RightDriveSmart = motor_group(rightMotorA, rightMotorB, rightMotorC);
 inertial DrivetrainInertial = inertial(PORT5);
 smartdrive Drivetrain = smartdrive(LeftDriveSmart, RightDriveSmart, DrivetrainInertial, 319.19, 320, 40, mm, 1);
-motor rightIntake = motor(PORT20, ratio18_1, true);
-motor leftIntake = motor(PORT2, ratio18_1, false);
-motor leftCatapault = motor(PORT8, ratio18_1, false);
-motor rightCatapault = motor(PORT10, ratio18_1, false);
+motor rightIntake = motor(PORT19, ratio18_1, true);
+motor leftIntake = motor(PORT16, ratio18_1, false);
+motor leftCatapault = motor(PORT20, ratio18_1, false);
+motor rightCatapault = motor(PORT10, ratio18_1, true);
 motor intakeOpenMotorA = motor(PORT17, ratio18_1, true);
 motor intakeOpenMotorB = motor(PORT18, ratio18_1, false);
 motor_group intakeOpen = motor_group(intakeOpenMotorA, intakeOpenMotorB);

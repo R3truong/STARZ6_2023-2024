@@ -4,148 +4,6 @@
 // Controller1          controller                    
 // Drivetrain           drivetrain    20, 18, 19, 17, 5
 // ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    20, 18, 19, 17, 5
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    9, 13, 1, 11, 5 
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// intakeOpen           motor_group   17, 18          
-// catapaultConstraint  rotation      7               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    9, 13, 1, 11, 5 
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// intakeOpen           motor_group   17, 18          
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    9, 13, 1, 11, 5 
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// MotorGroup17         motor_group   17, 18          
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    9, 13, 1, 11, 5 
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    9, 13, 1, 11, 5 
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// leftCatapault        motor         8               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    9, 13, 1, 11, 5 
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    9, 13, 1, 11, 5 
-// rightIntake          motor         20              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    9, 13, 1, 11, 5 
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    3, 4, 5, 6, 7   
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    3, 4, 5, 6, 7   
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RearLeft             motor         9               
-// CenterRight          motor         21              
-// InertiaSensor        inertial      5               
-// rightIntake          motor         20              
-// leftIntake           motor         2               
-// leftCatapault        motor         8               
-// rightCatapault       motor         10              
-// catapaultSwitch      limit         H               
-// RearRight            motor         1               
-// CenterLeft           motor         12              
-// FrontLeft            motor         13              
-// FrontRight           motor         11              
-// intakeOpen           motor_group   17, 18          
-// catapaultConstraint  rotation      7               
-// Drivetrain           drivetrain    3, 4, 6, 19, 14 
-// ---- END VEXCODE CONFIGURED DEVICES ----
-
 #include "vex.h"
 #include <iostream>
 
@@ -156,19 +14,11 @@ competition Competition;
 
 // define your global instances of motors and other devices here
 // Movement Motor Variable Declarations
-float frontLeft;
-float frontRight;
-float centerLeft;
-float centerRight;
-float rearLeft;
-float rearRight;
 float leftVelocity;
 float rightVelocity;
 int deadzone;
 float controllerYAxis;
 float controllerXAxis;
-
-
 
 
 // Intake and Shooter Variable Declarations
@@ -294,8 +144,6 @@ void autonomous(void)
 /*---------------------------------------------------------------------------*/
 
 void usercontrol(void) {
-  leftIntake.setVelocity(100,percent);
-  rightIntake.setVelocity(100,percent);
   // User control code here, inside the loop
   while (1) {
     std::cout << catapaultConstraint.position(degrees) << std::endl;
@@ -351,12 +199,12 @@ void usercontrol(void) {
 
     // Shooter Code
    
-    if(loadCatapault && fabs(catapaultConstraint.position(degrees)) < 70)
+    if(loadCatapault && fabs(catapaultConstraint.position(degrees)) < 76)
     {
       leftCatapault.spin(forward);
       rightCatapault.spin(forward);
     }
-    else if(fabs(catapaultConstraint.position(degrees)) > 70 && !fireCatapault)
+    else if(fabs(catapaultConstraint.position(degrees)) > 76 && !fireCatapault)
     {  
       // std::cout << "test" << std::endl;   
       leftCatapault.stop();
@@ -401,7 +249,6 @@ void setMotorVelocities(float leftValue, float rightValue)
 
 void spinMotors()
 {
-  Drivetrain.setDriveVelocity(100,percent);
   Drivetrain.drive(forward);
 }
 void spinMotorsForwardToAuton()
@@ -424,6 +271,8 @@ void stopMotors()
 int openIntake()
 {
   intakeOpen.spinToPosition(-135, degrees);
+  leftIntake.setVelocity(100,percent);
+  rightIntake.setVelocity(100,percent);
   leftIntake.spin(forward);
   rightIntake.spin(forward);
   wait(500,msec);
