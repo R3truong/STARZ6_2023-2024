@@ -18,8 +18,7 @@ motor rightMotorA = motor(PORT9, ratio18_1, false);
 motor rightMotorB = motor(PORT8, ratio18_1, false);
 motor rightMotorC = motor(PORT21, ratio18_1, true);
 motor_group RightDriveSmart = motor_group(rightMotorA, rightMotorB, rightMotorC);
-inertial DrivetrainInertial = inertial(PORT5);
-smartdrive Drivetrain = smartdrive(LeftDriveSmart, RightDriveSmart, DrivetrainInertial, 319.19, 320, 40, mm, 1);
+drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 292.09999999999997, 266.7, mm, 1);
 motor rightIntake = motor(PORT19, ratio18_1, true);
 motor leftIntake = motor(PORT16, ratio18_1, false);
 motor leftCatapault = motor(PORT20, ratio18_1, false);
@@ -102,15 +101,12 @@ void vexcodeInit( void ) {
   Brain.Screen.setCursor(2, 1);
   // calibrate the drivetrain Inertial
   wait(200, msec);
-  DrivetrainInertial.calibrate();
-  Brain.Screen.print("Calibrating Inertial for Drivetrain");
+  
+  
   // wait for the Inertial calibration process to finish
-  while (DrivetrainInertial.isCalibrating()) {
-    wait(25, msec);
-  }
+  
   // reset the screen now that the calibration is complete
-  Brain.Screen.clearScreen();
-  Brain.Screen.setCursor(1,1);
+  
   task rc_auto_loop_task_Controller1(rc_auto_loop_function_Controller1);
   wait(50, msec);
   Brain.Screen.clearScreen();

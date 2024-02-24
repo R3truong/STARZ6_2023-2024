@@ -90,6 +90,10 @@ void autonomous(void)
   {
     catapaultAuton();
   }); 
+ // thread rearRight([]
+//  {
+ //   catapaultAuton();
+ // });  
   // leftCatapault.setVelocity(25,percent);
   // rightCatapault.setVelocity(25,percent);
   // loadCatapaultAuton();
@@ -110,24 +114,51 @@ void autonomous(void)
   // leftCatapault.setStopping(hold);
   // rightCatapault.setStopping(hold);
 
-  // driveToGoal( 100, 100, 264);
-  // wait(264,msec);
+  Drivetrain.setDriveVelocity(55, percent); //start at matchload bar
+  Drivetrain.driveFor(reverse, 4.15, inches);
+  Drivetrain.turnFor(40, degrees);
+  Drivetrain.driveFor(reverse, 13, inches);
+  Drivetrain.turnFor(-13, degrees); //full length field setup position
+  Drivetrain.setDriveVelocity(85, percent); 
 
-  // driveToGoal( 100, -80, 320);
- // driveToGoal( -80, 100, 290);
-//  wait(264,msec);
-  //forward
-  // autoDriveForward(70, 70, 200);
-  // wait(264,msec);
-  // autoDriveForward( 70, 70, 3000);
-  // wait(1000,msec);
+  Drivetrain.driveFor(reverse, 35, inches); //forward full lenth of field
+  Drivetrain.turnFor(-2, degrees);
+  Drivetrain.driveFor(reverse, 45, inches);
+  Drivetrain.setDriveVelocity(55, percent); 
+  Drivetrain.turnFor(-24.5, degrees); // turnRight 45 degree turns 
+  Drivetrain.driveFor(reverse, 22, inches);
+  Drivetrain.turnFor(-26, degrees); //oposite side turning towards goal
 
- // driveToGoal(100,-20,380);
- // driveToGoal(100,100,1000);
+  Drivetrain.setDriveVelocity(70, percent);
+  Drivetrain.driveFor(reverse, 9.5, inches);
+  Drivetrain.driveFor(forward, 9.5, inches); //Back up back Ram code
+  Drivetrain.driveFor(reverse, 9.5, inches);
+  Drivetrain.driveFor(forward, 9.5, inches);
 
- // driveToGoal( -100, 100, 10);
-  // stopMotors();
+  Drivetrain.setDriveVelocity(60, percent);
+  Drivetrain.turnFor(-49.5, degrees); //turn towards from of goal
+  Drivetrain.driveFor(reverse, 14.5, inches); //]
+  Drivetrain.turnFor(24.5, degrees);        //] movement around goal
+  Drivetrain.driveFor(reverse, 35, inches); //]
+  Drivetrain.turnFor(24.5, degrees);        //]
+  Drivetrain.driveFor(reverse, 5, inches);  
+  Drivetrain.turnFor(47, degrees);
+  Drivetrain.setDriveVelocity(70, percent);
+  Drivetrain.driveFor(reverse, 19, inches);
+  Drivetrain.driveFor(forward, 10, inches);
   
+
+
+
+
+
+
+
+  wait(50, msec);
+  stopMotors();
+
+  //forward turnRight  /// (Full length: forward) turnLeft forward (turn towards goal: turnleft) forward turnLeft forward ////
+  //back up back in back up back in back up (turn toward goal: turnLeft) forward turnRight forward turnRight Forward backup
 
  // openIntake();
  // spinIntake();
