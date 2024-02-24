@@ -89,7 +89,7 @@ void autonomous(void)
   thread rearRight([]
   {
     catapaultAuton();
-  });  
+  }); 
   // leftCatapault.setVelocity(25,percent);
   // rightCatapault.setVelocity(25,percent);
   // loadCatapaultAuton();
@@ -353,10 +353,6 @@ int catapaultAuton()
         leftCatapault.spinFor(forward,100,degrees);
       }
     catapaultMode += 1;
-    }
-    else if(fabs((catapaultConstraint.position(degrees))) > 30)
-    {
-
     }
   } 
   return 0;
