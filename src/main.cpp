@@ -86,33 +86,11 @@ void pre_auton(void) {
 
 void autonomous(void) 
 {
-  thread rearRight([]
-  {
-    catapaultAuton();
-  }); 
- // thread rearRight([]
-//  {
- //   catapaultAuton();
- // });  
-  // leftCatapault.setVelocity(25,percent);
-  // rightCatapault.setVelocity(25,percent);
-  // loadCatapaultAuton();
-  // spinMotors();
-  // openIntake();
-  // wait(0.5,msec);
-  // stopMotors();
-  // closeIntake();
-  // spinIntake();
-// Movement
-  // leftCatapault.setVelocity(20,percent);
-  // rightCatapault.setVelocity(20,percent);
-  // leftCatapault.spin(forward);
-  // rightCatapault.spin(forward);
-  // wait(1000,msec);
-  // leftCatapault.stop();
-  // rightCatapault.stop();
-  // leftCatapault.setStopping(hold);
-  // rightCatapault.setStopping(hold);
+  // Fire match loads
+  catapaultAuton();
+  leftCatapault.stop();
+  rightCatapault.stop();
+  // End of matchload shooting
 
   Drivetrain.setDriveVelocity(55, percent); //start at matchload bar
   Drivetrain.driveFor(reverse, 4.15, inches);
@@ -185,7 +163,6 @@ void autonomous(void)
 void usercontrol(void) {
   // User control code here, inside the loop
   while (1) {
-    std::cout << catapaultConstraint.position(degrees) << std::endl;
     // Controller Variables
     deadzone = 9;
     controllerYAxis = Controller1.Axis3.position(percent); // Left Stick
@@ -315,14 +292,16 @@ void stopMotors()
 }
 int openIntake()
 {
+  intakeOpen.setVelocity(100, percent);
   intakeOpen.spinToPosition(-150, degrees);
   leftIntake.setVelocity(100,percent);
   rightIntake.setVelocity(100,percent);
   leftIntake.spin(forward);
   rightIntake.spin(forward);
-  wait(500,msec);
+  wait(600,msec);
   intakeOpen.stop();
   wait(1000,msec);
+  intakeOpen.resetPosition();
   stopIntake();
 
   return 0;
@@ -353,19 +332,22 @@ void driveToGoal(float left, float right,int mili)
 
 int catapaultAuton()
 {
+  intakeOpen.resetPosition();
   timer Time = timer();
   Time.clear();
   float currentTime = Time.time(seconds);
   int catapaultMode = 0;
-  while(currentTime < 45)
+  while(currentTime < 23)
   {
-
+  std::cout << currentTime << std::endl;
     if(fabs(catapaultConstraint.position(degrees)) < 76)
     {
       leftCatapault.spin(forward);
-      rightCatapault.spin(forward);
+      rightCatapault.spin(forward);      
     }
-    else if(fabs(catapaultConstraint.position(degrees)) > 76)
+    wait(500,msec);
+    openIntake();
+    if(fabs(catapaultConstraint.position(degrees)) > 75)
     {  
       if(catapaultMode % 2 == 0)
       {
@@ -377,24 +359,18 @@ int catapaultAuton()
       else
       {
         intakeOpen.setPosition(0, degrees);
-        openIntake();
-        wait(500,msec);
         leftCatapault.setStopping(coast);
         rightCatapault.setStopping(coast);
+        wait(500,msec);
         leftCatapault.spinFor(forward,100,degrees);
       }
     catapaultMode += 1;
     }
+    currentTime = Time.time(seconds);
   } 
   return 0;
 }
-void autonCatapaultFire()
-{
-  while(fabs(catapaultConstraint.position(degrees)) < 76)
-  {
 
-  }
-}
 void autoDriveForward(float left, float right,int mili)
 {
   setMotorVelocities(left, right);
