@@ -4,7 +4,7 @@ extern brain Brain;
 
 // VEXcode devices
 extern controller Controller1;
-extern smartdrive Drivetrain;
+extern drivetrain Drivetrain;
 extern motor leftIntake;
 extern motor rightIntake;
 extern motor leftCatapault;
