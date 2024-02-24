@@ -27,6 +27,7 @@ bool clawButton;
 bool loadCatapault;
 bool fireCatapault;
 bool resetIntakePosition;
+bool resetCatapaultPosition;
 
 // driver control function Declarations
 void setMotorVelocities(float left, float right);
@@ -46,9 +47,10 @@ bool resetOrientation;
 // autonomous function declarations
 void spinMotorsForwardAuton();
 void spinMotorsReverseAuton();
+void autonCatapaultFire();
 void driveToGoal(float left, float right, int mili);
 void drivePID();
-void loadCatapaultAuton();
+int catapaultAuton();
 
 /*---------------------------------------------------------------------------*/
 /*                          Pre-Autonomous Functions                         */
@@ -66,6 +68,8 @@ void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
   catapaultConstraint.resetPosition();
+  intakeOpen.setPosition(0, degrees);
+
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
 }
@@ -82,6 +86,10 @@ void pre_auton(void) {
 
 void autonomous(void) 
 {
+  thread rearRight([]
+  {
+    catapaultAuton();
+  });  
   // leftCatapault.setVelocity(25,percent);
   // rightCatapault.setVelocity(25,percent);
   // loadCatapaultAuton();
@@ -92,33 +100,33 @@ void autonomous(void)
   // closeIntake();
   // spinIntake();
 // Movement
-  leftCatapault.setVelocity(20,percent);
-  rightCatapault.setVelocity(20,percent);
-  leftCatapault.spin(forward);
-  rightCatapault.spin(forward);
-  wait(1000,msec);
-  leftCatapault.stop();
-  rightCatapault.stop();
-  leftCatapault.setStopping(hold);
-  rightCatapault.setStopping(hold);
+  // leftCatapault.setVelocity(20,percent);
+  // rightCatapault.setVelocity(20,percent);
+  // leftCatapault.spin(forward);
+  // rightCatapault.spin(forward);
+  // wait(1000,msec);
+  // leftCatapault.stop();
+  // rightCatapault.stop();
+  // leftCatapault.setStopping(hold);
+  // rightCatapault.setStopping(hold);
 
-  driveToGoal( 100, 100, 264);
-  wait(264,msec);
+  // driveToGoal( 100, 100, 264);
+  // wait(264,msec);
 
-  driveToGoal( 100, -80, 320);
+  // driveToGoal( 100, -80, 320);
  // driveToGoal( -80, 100, 290);
 //  wait(264,msec);
   //forward
-  autoDriveForward(70, 70, 200);
-  wait(264,msec);
-  autoDriveForward( 70, 70, 3000);
-  wait(1000,msec);
+  // autoDriveForward(70, 70, 200);
+  // wait(264,msec);
+  // autoDriveForward( 70, 70, 3000);
+  // wait(1000,msec);
 
  // driveToGoal(100,-20,380);
  // driveToGoal(100,100,1000);
 
  // driveToGoal( -100, 100, 10);
-  stopMotors();
+  // stopMotors();
   
 
  // openIntake();
@@ -158,6 +166,7 @@ void usercontrol(void) {
     loadCatapault = Controller1.ButtonR1.pressing(); // R1
     fireCatapault = Controller1.ButtonR2.pressing(); // L1
     resetIntakePosition = Controller1.ButtonDown.pressing(); // down arrow on dpad
+    resetCatapaultPosition = Controller1.ButtonUp.pressing(); // up arrow on dpad
     
     // Velocities of said variables
     leftVelocity = controllerYAxis + controllerXAxis;
@@ -195,6 +204,11 @@ void usercontrol(void) {
     if(resetIntakePosition)
     {
       intakeOpen.resetPosition();
+    }
+    if(resetCatapaultPosition)
+    {
+      leftCatapault.spin(reverse);
+      rightCatapault.spin(reverse);
     }
 
     // Shooter Code
@@ -270,7 +284,7 @@ void stopMotors()
 }
 int openIntake()
 {
-  intakeOpen.spinToPosition(-135, degrees);
+  intakeOpen.spinToPosition(-150, degrees);
   leftIntake.setVelocity(100,percent);
   rightIntake.setVelocity(100,percent);
   leftIntake.spin(forward);
@@ -306,12 +320,53 @@ void driveToGoal(float left, float right,int mili)
   
 }
 
-void loadCatapaultAuton()
+int catapaultAuton()
 {
-  // leftCatapault.spinFor(forward,360,degrees);
-  // rightCatapault.spinFor(forward,360,degrees);
-  reverseAuto();
-  stopMotors();
+  timer Time = timer();
+  Time.clear();
+  float currentTime = Time.time(seconds);
+  int catapaultMode = 0;
+  while(currentTime < 45)
+  {
+
+    if(fabs(catapaultConstraint.position(degrees)) < 76)
+    {
+      leftCatapault.spin(forward);
+      rightCatapault.spin(forward);
+    }
+    else if(fabs(catapaultConstraint.position(degrees)) > 76)
+    {  
+      if(catapaultMode % 2 == 0)
+      {
+        leftCatapault.stop();
+        rightCatapault.stop();
+        leftCatapault.setStopping(hold);
+        rightCatapault.setStopping(hold);
+      }
+      else
+      {
+        intakeOpen.setPosition(0, degrees);
+        openIntake();
+        wait(500,msec);
+        leftCatapault.setStopping(coast);
+        rightCatapault.setStopping(coast);
+        leftCatapault.spinFor(forward,100,degrees);
+      }
+    catapaultMode += 1;
+    }
+    else if(fabs((catapaultConstraint.position(degrees))) > 30)
+    {
+
+    }
+  } 
+  return 0;
+}
+void autonCatapaultFire()
+{
+  while(fabs(catapaultConstraint.position(degrees)) < 76)
+  {
+
+  }
 }
 void autoDriveForward(float left, float right,int mili)
 {
