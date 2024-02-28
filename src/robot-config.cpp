@@ -20,11 +20,11 @@ motor rightMotorC = motor(PORT21, ratio18_1, true);
 motor_group RightDriveSmart = motor_group(rightMotorA, rightMotorB, rightMotorC);
 drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 292.09999999999997, 266.7, mm, 1);
 motor rightIntake = motor(PORT19, ratio18_1, true);
-motor leftIntake = motor(PORT16, ratio18_1, false);
+motor leftIntake = motor(PORT17, ratio18_1, false);
 motor leftCatapault = motor(PORT20, ratio18_1, false);
 motor rightCatapault = motor(PORT10, ratio18_1, true);
-motor intakeOpenMotorA = motor(PORT17, ratio18_1, true);
-motor intakeOpenMotorB = motor(PORT18, ratio18_1, false);
+motor intakeOpenMotorA = motor(PORT16, ratio18_1, false);
+motor intakeOpenMotorB = motor(PORT18, ratio18_1, true);
 motor_group intakeOpen = motor_group(intakeOpenMotorA, intakeOpenMotorB);
 rotation catapaultConstraint = rotation(PORT7, false);
 

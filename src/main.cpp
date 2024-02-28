@@ -9,6 +9,8 @@
 
 using namespace vex;
 
+
+
 // A global instance of competition
 competition Competition;
 
@@ -37,7 +39,7 @@ void spinIntake();
 void stopIntake();
 int openIntake();
 void closeIntake();
-void reverseAuto();
+void reverseIntake();
 void autoDriveForward(float left, float right, int mili);
 
 // Autonomous Variable Declarations
@@ -92,6 +94,7 @@ void autonomous(void)
   rightCatapault.stop();
   // End of matchload shooting
 
+  /*
   Drivetrain.setDriveVelocity(55, percent); //start at matchload bar
   Drivetrain.driveFor(reverse, 4.15, inches);
   Drivetrain.turnFor(40, degrees);
@@ -124,6 +127,7 @@ void autonomous(void)
   Drivetrain.setDriveVelocity(70, percent);
   Drivetrain.driveFor(reverse, 19, inches);
   Drivetrain.driveFor(forward, 10, inches);
+  */
   
 
 
@@ -164,6 +168,7 @@ void usercontrol(void) {
   // User control code here, inside the loop
   while (1) {
     // Controller Variables
+    std::cout << intakeOpen.position(degrees) << std::endl;
     deadzone = 9;
     controllerYAxis = Controller1.Axis3.position(percent); // Left Stick
     controllerXAxis = Controller1.Axis1.position(percent); // Right Stick
@@ -211,7 +216,7 @@ void usercontrol(void) {
       });    }
     if(resetIntakePosition)
     {
-      intakeOpen.resetPosition();
+      reverseIntake();
     }
     if(resetCatapaultPosition)
     {
@@ -292,16 +297,15 @@ void stopMotors()
 }
 int openIntake()
 {
-  intakeOpen.setVelocity(100, percent);
-  intakeOpen.spinToPosition(-150, degrees);
+  intakeOpen.setVelocity(30, percent);
+  intakeOpen.spinToPosition(-80, degrees);
   leftIntake.setVelocity(100,percent);
   rightIntake.setVelocity(100,percent);
   leftIntake.spin(forward);
   rightIntake.spin(forward);
-  wait(600,msec);
-  intakeOpen.stop();
   wait(1000,msec);
-  intakeOpen.resetPosition();
+  intakeOpen.spinToPosition(-10, degrees);
+  wait(1000,msec);
   stopIntake();
 
   return 0;
@@ -332,42 +336,80 @@ void driveToGoal(float left, float right,int mili)
 
 int catapaultAuton()
 {
-  intakeOpen.resetPosition();
+  leftCatapault.setVelocity(40, percent);
+  rightCatapault.setVelocity(40, percent);
+  rightIntake.setVelocity(100, percent);
+  leftIntake.setVelocity(100, percent);
   timer Time = timer();
   Time.clear();
   float currentTime = Time.time(seconds);
-  int catapaultMode = 0;
-  while(currentTime < 23)
+  intakeOpen.setVelocity(60, percent);
+  rightCatapault.setStopping(hold);
+  leftCatapault.setStopping(hold);
+  while(currentTime <= 45)
   {
-  std::cout << currentTime << std::endl;
-    if(fabs(catapaultConstraint.position(degrees)) < 76)
+    while(fabs(catapaultConstraint.position(degrees)) < 20)
     {
       leftCatapault.spin(forward);
-      rightCatapault.spin(forward);      
+      rightCatapault.spin(forward);
     }
-    wait(500,msec);
-    openIntake();
-    if(fabs(catapaultConstraint.position(degrees)) > 75)
-    {  
-      if(catapaultMode % 2 == 0)
-      {
-        leftCatapault.stop();
-        rightCatapault.stop();
-        leftCatapault.setStopping(hold);
-        rightCatapault.setStopping(hold);
-      }
-      else
-      {
-        intakeOpen.setPosition(0, degrees);
-        leftCatapault.setStopping(coast);
-        rightCatapault.setStopping(coast);
-        wait(500,msec);
-        leftCatapault.spinFor(forward,100,degrees);
-      }
-    catapaultMode += 1;
-    }
+
+    intakeOpen.spinTo(-80, degrees, false);
+    while(fabs(catapaultConstraint.position(degrees)) < 74)
+    {
+      leftCatapault.spin(forward);
+      rightCatapault.spin(forward);
+    }    
+    leftCatapault.stop();
+    rightCatapault.stop();
+    wait(200,msec);
+    rightIntake.spin(forward);
+    leftIntake.spin(forward);
+    intakeOpen.spinTo(0, degrees);
+    wait(200,msec);
+    std::cout << "Start" << std::endl;
+    leftCatapault.spinFor(forward, 100, degrees, false);
+    rightCatapault.spinFor(forward, 100, degrees);
+    std::cout << "End" << std::endl;
+    wait(100,msec);
+    rightIntake.stop();
+    leftIntake.stop();
+    wait(400,msec);
+    intakeOpen.resetPosition();
     currentTime = Time.time(seconds);
-  } 
+  }
+  // timer Time = timer();
+  // Time.clear();
+  // float currentTime = Time.time(seconds);
+  // int catapaultMode = 0;
+  // leftCatapault.spin(forward);
+  // rightCatapault.spin(forward);  
+  // while(currentTime < 20)
+  // {
+  //   if(fabs(catapaultConstraint.position(degrees)) > 75)
+  //   {  
+  //     if(catapaultMode % 2 == 0)
+  //     {
+  //       leftCatapault.stop();
+  //       rightCatapault.stop();
+  //       leftCatapault.setStopping(hold);
+  //       rightCatapault.setStopping(hold);
+  //       catapaultMode += 1;
+  //     }
+  //     else
+  //     {
+  //       wait(500,msec);
+  //       intakeOpen.setPosition(0, degrees);
+  //       leftCatapault.setStopping(coast);
+  //       rightCatapault.setStopping(coast);
+  //       wait(500,msec);
+  //       leftCatapault.spinFor(forward,100,degrees);
+  //       catapaultMode += 1;
+  //     }
+  //   }
+  //   currentTime = Time.time(seconds);
+  //   openIntake();
+  // } 
   return 0;
 }
 
@@ -378,7 +420,12 @@ void autoDriveForward(float left, float right,int mili)
   wait( mili ,msec);
   stopMotors();
 }
-void reverseAuto()
+void reverseIntake()
 {
-  
+  intakeOpen.setVelocity(30, percent);
+  intakeOpen.spinToPosition(-80, degrees,false);
+  wait(1000,msec);
+  intakeOpen.spinToPosition(-10, degrees,false);
+  wait(1000,msec);
+  stopIntake();
 }
