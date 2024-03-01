@@ -299,15 +299,13 @@ void stopMotors()
 int openIntake()
 {
   intakeOpen.setVelocity(30, percent);
-  intakeOpen.spinToPosition(-80, degrees);
+  intakeOpen.spinFor(reverse,2000,msec);
   wait(1000,msec);
   leftIntake.spin(forward);
   rightIntake.spin(forward);
   intakeOpen.spinFor(forward, 2000, msec);
   leftIntake.setVelocity(100,percent);
   rightIntake.setVelocity(100,percent);
-  wait(1000,msec);
-  intakeOpen.spinToPosition(-10, degrees);
   wait(1000,msec);
   stopIntake();
 
