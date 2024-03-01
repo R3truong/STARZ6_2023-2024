@@ -10,23 +10,23 @@ brain  Brain;
 // VEXcode device constructors
 controller Controller1 = controller(primary);
 
-motor leftMotorA = motor(PORT11, ratio18_1, true);
-motor leftMotorB = motor(PORT13, ratio18_1, true);
-motor leftMotorC = motor(PORT12 , ratio18_1, false);
+motor leftMotorA = motor(PORT15, ratio18_1, true); 
+motor leftMotorB = motor(PORT18, ratio18_1, false);
+motor leftMotorC = motor(PORT16 , ratio18_1, true);
 motor_group LeftDriveSmart = motor_group(leftMotorA, leftMotorB, leftMotorC);
-motor rightMotorA = motor(PORT9, ratio18_1, false);
-motor rightMotorB = motor(PORT8, ratio18_1, false);
-motor rightMotorC = motor(PORT21, ratio18_1, true);
+motor rightMotorA = motor(PORT19, ratio18_1, false);
+motor rightMotorB = motor(PORT21, ratio18_1, true);
+motor rightMotorC = motor(PORT9, ratio18_1, false);
 motor_group RightDriveSmart = motor_group(rightMotorA, rightMotorB, rightMotorC);
 drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 292.09999999999997, 266.7, mm, 1);
-motor rightIntake = motor(PORT19, ratio18_1, true);
-motor leftIntake = motor(PORT17, ratio18_1, false);
-motor leftCatapault = motor(PORT20, ratio18_1, false);
+motor rightIntake = motor(PORT20, ratio18_1, true);
+motor leftIntake = motor(PORT11, ratio18_1, false);
+motor leftCatapault = motor(PORT13, ratio18_1, false);
 motor rightCatapault = motor(PORT10, ratio18_1, true);
-motor intakeOpenMotorA = motor(PORT16, ratio18_1, false);
-motor intakeOpenMotorB = motor(PORT18, ratio18_1, true);
+motor intakeOpenMotorA = motor(PORT14, ratio18_1, false);
+motor intakeOpenMotorB = motor(PORT17, ratio18_1, true);
 motor_group intakeOpen = motor_group(intakeOpenMotorA, intakeOpenMotorB);
-rotation catapaultConstraint = rotation(PORT7, false);
+rotation catapaultConstraint = rotation(PORT4, false);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable

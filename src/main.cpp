@@ -181,6 +181,7 @@ void usercontrol(void) {
     resetIntakePosition = Controller1.ButtonDown.pressing(); // down arrow on dpad
     resetCatapaultPosition = Controller1.ButtonUp.pressing(); // up arrow on dpad
     
+
     // Velocities of said variables
     leftVelocity = controllerYAxis + controllerXAxis;
     rightVelocity = controllerYAxis - controllerXAxis;
@@ -299,10 +300,12 @@ int openIntake()
 {
   intakeOpen.setVelocity(30, percent);
   intakeOpen.spinToPosition(-80, degrees);
-  leftIntake.setVelocity(100,percent);
-  rightIntake.setVelocity(100,percent);
+  wait(1000,msec);
   leftIntake.spin(forward);
   rightIntake.spin(forward);
+  intakeOpen.spinFor(forward, 2000, msec);
+  leftIntake.setVelocity(100,percent);
+  rightIntake.setVelocity(100,percent);
   wait(1000,msec);
   intakeOpen.spinToPosition(-10, degrees);
   wait(1000,msec);
