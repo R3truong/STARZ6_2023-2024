@@ -299,14 +299,14 @@ void stopMotors()
 int openIntake()
 {
   intakeOpen.setVelocity(30, percent);
-  intakeOpen.spinFor(reverse,2000,msec);
-  wait(1000,msec);
+  intakeOpen.spinFor(reverse,1000,msec);
+  wait(300,msec);
   leftIntake.spin(forward);
   rightIntake.spin(forward);
-  intakeOpen.spinFor(forward, 2000, msec);
+  intakeOpen.spinFor(forward, 1000, msec);
   leftIntake.setVelocity(100,percent);
   rightIntake.setVelocity(100,percent);
-  wait(1000,msec);
+  wait(300,msec);
   stopIntake();
 
   return 0;
@@ -347,7 +347,7 @@ int catapaultAuton()
   intakeOpen.setVelocity(60, percent);
   rightCatapault.setStopping(hold);
   leftCatapault.setStopping(hold);
-  while(currentTime <= 45)
+  while(currentTime <= 60)
   {
     while(fabs(catapaultConstraint.position(degrees)) < 20)
     {
@@ -366,8 +366,8 @@ int catapaultAuton()
     wait(200,msec);
     rightIntake.spin(forward);
     leftIntake.spin(forward);
-    intakeOpen.spinTo(0, degrees);
-    wait(200,msec);
+    intakeOpen.spinFor(forward, 800, msec);
+    wait(500,msec);
     std::cout << "Start" << std::endl;
     leftCatapault.spinFor(forward, 100, degrees, false);
     rightCatapault.spinFor(forward, 100, degrees);

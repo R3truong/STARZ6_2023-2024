@@ -10,13 +10,13 @@ brain  Brain;
 // VEXcode device constructors
 controller Controller1 = controller(primary);
 
-motor leftMotorA = motor(PORT15, ratio18_1, true); 
-motor leftMotorB = motor(PORT18, ratio18_1, false);
-motor leftMotorC = motor(PORT16 , ratio18_1, true);
+motor leftMotorA = motor(PORT15, ratio18_1, false); 
+motor leftMotorB = motor(PORT18, ratio18_1, true);
+motor leftMotorC = motor(PORT16 , ratio18_1, false);
 motor_group LeftDriveSmart = motor_group(leftMotorA, leftMotorB, leftMotorC);
-motor rightMotorA = motor(PORT19, ratio18_1, false);
-motor rightMotorB = motor(PORT21, ratio18_1, true);
-motor rightMotorC = motor(PORT9, ratio18_1, false);
+motor rightMotorA = motor(PORT19, ratio18_1, true);
+motor rightMotorB = motor(PORT21, ratio18_1, false);
+motor rightMotorC = motor(PORT9, ratio18_1, true);
 motor_group RightDriveSmart = motor_group(rightMotorA, rightMotorB, rightMotorC);
 drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 292.09999999999997, 266.7, mm, 1);
 motor rightIntake = motor(PORT20, ratio18_1, true);
@@ -44,8 +44,8 @@ int rc_auto_loop_function_Controller1() {
       // calculate the drivetrain motor velocities from the controller joystick axies
       // left = Axis3 + Axis1
       // right = Axis3 - Axis1
-      int drivetrainLeftSideSpeed = Controller1.Axis3.position() + Controller1.Axis1.position();
-      int drivetrainRightSideSpeed = Controller1.Axis3.position() - Controller1.Axis1.position();
+      int drivetrainLeftSideSpeed = Controller1.Axis3.position() - Controller1.Axis1.position();
+      int drivetrainRightSideSpeed = Controller1.Axis3.position() + Controller1.Axis1.position();
       
       // check if the value is inside of the deadband range
       if (drivetrainLeftSideSpeed < 5 && drivetrainLeftSideSpeed > -5) {
